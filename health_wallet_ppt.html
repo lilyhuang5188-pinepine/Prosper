@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>健康钱包 - 一页PPT</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
+        'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+      background: #f5f5f5;
+    }
+
+    .slide {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #ffffff;
+      margin: 20px auto;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* ──── Header ──── */
+    .header {
+      background: linear-gradient(135deg, #12502F 0%, #1E7A4A 100%);
+      color: #fff;
+      padding: 32px 48px 24px;
+      position: relative;
+    }
+
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; right: 0;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+      pointer-events: none;
+    }
+
+    .header-title {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      position: relative;
+      z-index: 1;
+      line-height: 1.2;
+    }
+
+    .header-sub {
+      font-size: 13px;
+      opacity: 0.75;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ──── Content ──── */
+    .content {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+      padding: 32px 48px;
+      align-content: start;
+    }
+
+    /* ──── Card ──── */
+    .card {
+      background: #f9fbfa;
+      border: 1px solid #e4efe7;
+      border-radius: 8px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-num {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #7a9a8a;
+      margin-bottom: 12px;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #12502f;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .card-body {
+      font-size: 13px;
+      color: #3d5448;
+      line-height: 1.65;
+      flex: 1;
+    }
+
+    /* ──── Contrast Box ──── */
+    .contrast {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .contrast-item {
+      padding: 16px;
+      border-radius: 6px;
+      font-size: 12.5px;
+      line-height: 1.6;
+    }
+
+    .contrast-old {
+      background: #f0f0f0;
+      color: #666;
+      border-left: 3px solid #ccc;
+    }
+
+    .contrast-new {
+      background: #d6ede1;
+      color: #12502f;
+      border-left: 3px solid #1e7a4a;
+      font-weight: 500;
+    }
+
+    /* ──── Footer ──── */
+    .footer {
+      background: #f0f5f1;
+      padding: 16px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #e4efe7;
+      font-size: 11px;
+      color: #7a9a8a;
+    }
+
+    /* ──── Print ──── */
+    @media print {
+      body { background: white; }
+      .slide { margin: 0; box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="slide">
+  
+  <!-- Header -->
+  <div class="header">
+    <div class="header-title">从赔付疾病到管理健康</div>
+    <div class="header-sub">永明京御 × 柏盛健康 | 2026</div>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+
+    <!-- Row 1: Contrast -->
+    <div class="contrast">
+      <div class="contrast-item contrast-old">
+        <strong>传统保险</strong><br>
+        生病 → 就医 → 理赔赔付<br>
+        角色：被动报销机器
+      </div>
+      <div class="contrast-item contrast-new">
+        <strong>永明京御</strong><br>
+        激励体检 → 减少就诊 → 健康奖励<br>
+        角色：主动健康伙伴
+      </div>
+    </div>
+
+    <!-- Row 2: 健康钱包三大环节 -->
+    <div class="card">
+      <div class="card-num">健康钱包</div>
+      <div class="card-title">获取积分</div>
+      <div class="card-body">
+        • 完成体检：5%<br>
+        • 门急诊未用：50%<br>
+        • 长期无理赔：5%<br>
+        • 新投保家庭：15-45%
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-num">健康钱包</div>
+      <div class="card-title">积分累积</div>
+      <div class="card-body">
+        • 年利率3%自动增长<br>
+        • 家庭保单共享<br>
+        • 跨年度结转<br>
+        • 1积分 = 1港元
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-num">健康钱包</div>
+      <div class="card-title">积分使用</div>
+      <div class="card-body">
+        • 12+类健康服务<br>
+        • 抵扣自付费<br>
+        • 超额赔付<br>
+        • 增值服务支付
+      </div>
+    </div>
+
+    <!-- Row 3: 柏盛核心能力 -->
+    <div class="card">
+      <div class="card-num">柏盛核心能力</div>
+      <div class="card-title">理赔管理</div>
+      <div class="card-body">
+        数据驱动的理赔体系，将未索偿金额自动转换为健康钱包积分
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-num">柏盛核心能力</div>
+      <div class="card-title">医疗网络</div>
+      <div class="card-body">
+        覆盖预防、诊断、治疗、康复全链条的12+类服务网络
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-num">柏盛核心能力</div>
+      <div class="card-title">科技平台</div>
+      <div class="card-body">
+        微信小程序统一入口，积分查询、预约、家庭共享、支付
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <span>基于永明香港2026年5月公开产品资料</span>
+    <span>柏盛健康</span>
+  </div>
+
+</div>
+
+</body>
+</html>
