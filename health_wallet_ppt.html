@@ -69,10 +69,11 @@
       align-content: start;
     }
 
-    /* ──── Card ──── */
+    /* ──── Card with Gradient Background ──── */
     .card {
-      background: #ffffff;
-      border: 1.5px solid #DAEFE2;
+      background: linear-gradient(135deg, rgba(57, 102, 202, 0.08) 0%, rgba(0, 212, 241, 0.08) 100%);
+      border: 1.5px solid;
+      border-image: linear-gradient(135deg, #3966CA 0%, #00D4F1 100%) 1;
       border-radius: 8px;
       padding: 20px;
       display: flex;
@@ -81,8 +82,8 @@
     }
 
     .card:hover {
-      border-color: #00D4F1;
-      box-shadow: 0 2px 8px rgba(0, 212, 241, 0.15);
+      background: linear-gradient(135deg, rgba(57, 102, 202, 0.12) 0%, rgba(0, 212, 241, 0.12) 100%);
+      box-shadow: 0 4px 12px rgba(0, 212, 241, 0.2);
     }
 
     .card-num {
@@ -103,9 +104,9 @@
     }
 
     .card-body {
-      font-size: 13px;
+      font-size: 14px;
       color: #2c2c2c;
-      line-height: 1.65;
+      line-height: 1.7;
       flex: 1;
     }
 
@@ -121,19 +122,19 @@
     .contrast-item {
       padding: 16px;
       border-radius: 6px;
-      font-size: 12.5px;
-      line-height: 1.6;
+      font-size: 13px;
+      line-height: 1.7;
       border-left: 3px solid;
     }
 
     .contrast-old {
-      background: #f5f5f5;
+      background: linear-gradient(135deg, rgba(200, 200, 200, 0.1) 0%, rgba(220, 220, 220, 0.1) 100%);
       color: #666;
       border-left-color: #ccc;
     }
 
     .contrast-new {
-      background: #DAEFE2;
+      background: linear-gradient(135deg, rgba(57, 102, 202, 0.1) 0%, rgba(0, 212, 241, 0.1) 100%);
       color: #3966CA;
       border-left-color: #00D4F1;
       font-weight: 500;
@@ -163,7 +164,7 @@
       justify-content: space-between;
       align-items: center;
       border-top: 1px solid #DAEFE2;
-      font-size: 11px;
+      font-size: 12px;
       color: #3966CA;
     }
 
