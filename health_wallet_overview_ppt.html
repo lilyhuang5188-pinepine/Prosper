@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>健康钱包方案 - 市场现状与解决方案</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
+        'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+      background: #f5f5f5;
+    }
+
+    .slide {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #ffffff;
+      margin: 20px auto;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* ──── Header ──── */
+    .header {
+      background: linear-gradient(135deg, #3966CA 0%, #00D4F1 100%);
+      color: #fff;
+      padding: 24px 48px 20px;
+      position: relative;
+    }
+
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; right: 0;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      pointer-events: none;
+    }
+
+    .header-title {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      position: relative;
+      z-index: 1;
+      line-height: 1.2;
+    }
+
+    .header-sub {
+      font-size: 13px;
+      opacity: 0.85;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ──── Content ──── */
+    .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 24px 48px;
+      gap: 20px;
+      overflow: hidden;
+    }
+
+    /* ──── Case Studies Row ──── */
+    .cases-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      height: 140px;
+    }
+
+    .case-card {
+      background: linear-gradient(135deg, rgba(57, 102, 202, 0.08) 0%, rgba(0, 212, 241, 0.08) 100%);
+      border: 1.5px solid;
+      border-image: linear-gradient(135deg, #3966CA 0%, #00D4F1 100%) 1;
+      border-radius: 8px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .case-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #3966CA;
+      margin-bottom: 6px;
+    }
+
+    .case-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #3966CA;
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
+    .case-body {
+      font-size: 13px;
+      color: #2c2c2c;
+      line-height: 1.6;
+    }
+
+    /* ──── Market Challenge Row ──── */
+    .challenge-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      height: 110px;
+    }
+
+    .challenge-item {
+      background: linear-gradient(135deg, rgba(255, 200, 69, 0.08) 0%, rgba(255, 139, 56, 0.08) 100%);
+      border-left: 3px solid #FFC845;
+      border-radius: 4px;
+      padding: 14px;
+    }
+
+    .challenge-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #FF8B38;
+      margin-bottom: 6px;
+    }
+
+    .challenge-text {
+      font-size: 13px;
+      color: #2c2c2c;
+      line-height: 1.65;
+    }
+
+    .challenge-text strong {
+      color: #FF8B38;
+      font-weight: 700;
+    }
+
+    /* ──── Solution Row ──── */
+    .solution-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      height: auto;
+    }
+
+    .solution-item {
+      background: linear-gradient(135deg, rgba(57, 102, 202, 0.08) 0%, rgba(0, 212, 241, 0.08) 100%);
+      border: 1.5px solid;
+      border-image: linear-gradient(135deg, #3966CA 0%, #00D4F1 100%) 1;
+      border-radius: 8px;
+      padding: 12px;
+    }
+
+    .solution-num {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #3966CA;
+      margin-bottom: 6px;
+    }
+
+    .solution-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #3966CA;
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
+    .solution-text {
+      font-size: 12px;
+      color: #2c2c2c;
+      line-height: 1.6;
+    }
+
+    .solution-text .accent-yellow {
+      color: #FFC845;
+      font-weight: 600;
+    }
+
+    /* ──── Section Label ──── */
+    .section-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #3966CA;
+      margin-bottom: 8px;
+    }
+
+    /* ──── Footer ──── */
+    .footer {
+      background: linear-gradient(90deg, #DAEFE2 0%, rgba(0, 212, 241, 0.08) 100%);
+      padding: 12px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #DAEFE2;
+      font-size: 11px;
+      color: #3966CA;
+    }
+
+    /* ──── Print ──── */
+    @media print {
+      body { background: white; }
+      .slide { margin: 0; box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="slide">
+  
+  <!-- Header -->
+  <div class="header">
+    <div class="header-title">健康钱包</div>
+    <div class="header-sub">企业福利成本与体验的平衡之道</div>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+
+    <!-- Case Studies Section -->
+    <div>
+      <div class="section-label">现实案例</div>
+      <div class="cases-row">
+        <div class="case-card">
+          <div class="case-label">MNC案例</div>
+          <div class="case-title">领先咨询公司</div>
+          <div class="case-body">控本 + 激励并行<br>动态自付 × 积分激励，实现成��长期管控</div>
+        </div>
+        <div class="case-card">
+          <div class="case-label">保险案例</div>
+          <div class="case-title">永明金融</div>
+          <div class="case-body">从被动赔付到主动管理<br>在控成本基础上，打出差异化卖点</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Market Challenge Section -->
+    <div>
+      <div class="section-label">市场困境</div>
+      <div class="challenge-row">
+        <div class="challenge-item">
+          <div class="challenge-label">企业困境</div>
+          <div class="challenge-text"><strong>成本严控</strong> vs <strong>高使用率</strong><br>保障充足但费用压力大</div>
+        </div>
+        <div class="challenge-item">
+          <div class="challenge-label">核心痛点</div>
+          <div class="challenge-text">需要在<strong>员工体验</strong>与<strong>成本控制</strong>之间找到平衡</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Solution Section -->
+    <div>
+      <div class="section-label">健康钱包的解决思路</div>
+      <div class="solution-row">
+        <div class="solution-item">
+          <div class="solution-num">01</div>
+          <div class="solution-title">激励导向</div>
+          <div class="solution-text">用<span class="accent-yellow">积分激励</span>线上就诊，主动进行健康管理</div>
+        </div>
+        <div class="solution-item">
+          <div class="solution-num">02</div>
+          <div class="solution-title">路径引导</div>
+          <div class="solution-text">引导<span class="accent-yellow">合理就医路径</span>，实现长期成本管控</div>
+        </div>
+        <div class="solution-item">
+          <div class="solution-item">
+            <div class="solution-num">03</div>
+            <div class="solution-title">定制灵活</div>
+            <div class="solution-text">根据企业需求<span class="accent-yellow">配置规则</span>，体现企业价值文化</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <span>从被动赔付到主动管理 · 成本与体验的双赢</span>
+    <span>柏盛健康</span>
+  </div>
+
+</div>
+
+</body>
+</html>
