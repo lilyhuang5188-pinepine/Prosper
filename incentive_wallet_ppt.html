@@ -69,6 +69,22 @@
       align-content: start;
     }
 
+    /* ──── Concept Box (No Border) ──── */
+    .concept {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, rgba(57, 102, 202, 0.08) 0%, rgba(0, 212, 241, 0.08) 100%);
+      border: none;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+    }
+
+    .concept-text {
+      font-size: 14px;
+      color: #2c2c2c;
+      line-height: 1.7;
+    }
+
     /* ──── Card with Gradient Background ──── */
     .card {
       background: linear-gradient(135deg, rgba(57, 102, 202, 0.08) 0%, rgba(0, 212, 241, 0.08) 100%);
@@ -119,23 +135,6 @@
       font-style: italic;
     }
 
-    /* ──── Concept Box ──── */
-    .concept {
-      grid-column: 1 / -1;
-      background: linear-gradient(135deg, rgba(57, 102, 202, 0.08) 0%, rgba(0, 212, 241, 0.08) 100%);
-      border: 1.5px solid;
-      border-image: linear-gradient(135deg, #3966CA 0%, #00D4F1 100%) 1;
-      border-radius: 8px;
-      padding: 16px 20px;
-      margin-bottom: 12px;
-    }
-
-    .concept-text {
-      font-size: 14px;
-      color: #2c2c2c;
-      line-height: 1.7;
-    }
-
     /* ──── Accent Elements ──── */
     .accent-yellow {
       color: #FFC845;
@@ -147,12 +146,27 @@
       font-weight: 600;
     }
 
-    /* ──── Highlights ──── */
+    /* ──── Highlights Section ──── */
+    .highlights-section {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .highlights-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #3966CA;
+      margin-bottom: 4px;
+    }
+
     .highlight {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       gap: 16px;
-      margin-top: 12px;
     }
 
     .highlight-item {
@@ -203,7 +217,7 @@
   <!-- Content -->
   <div class="content">
 
-    <!-- Concept -->
+    <!-- Concept (No Border) -->
     <div class="concept">
       <div class="concept-text">
         按就诊行为动态调整自付比例，叠加年度激励额度，激励结余可跨年使用——打破传统保险的"赔付驱动"，实现<span class="accent-yellow">主动管理驱动</span>
@@ -220,6 +234,7 @@
         • <span class="accent-yellow">21次以上</span>：30% 自付
       </div>
       <div class="card-note">
+        ※ 就诊次数定义：公立国际部、私立医院<br>
         ※ 线上问诊、慢病送药、理疗、中医、癌症治疗不计入次数
       </div>
     </div>
@@ -234,7 +249,7 @@
         • 自动与动态自付挂钩
       </div>
       <div class="card-note">
-        ※ 就诊次数定义：公立国际部、私立医院
+        ※ 灵活定制，支持多种使用场景
       </div>
     </div>
 
@@ -252,16 +267,19 @@
       </div>
     </div>
 
-    <!-- Highlights -->
-    <div class="highlight">
-      <div class="highlight-item">
-        大型MNC企业已规模运用
-      </div>
-      <div class="highlight-item">
-        从被动赔付转向主动管理
-      </div>
-      <div class="highlight-item">
-        平台灵活，支持深度定制
+    <!-- Highlights Section -->
+    <div class="highlights-section">
+      <div class="highlights-title">解决方案亮点</div>
+      <div class="highlight">
+        <div class="highlight-item">
+          大型MNC企业已规模运用
+        </div>
+        <div class="highlight-item">
+          从被动赔付转向主动管理
+        </div>
+        <div class="highlight-item">
+          平台灵活，支持深度定制
+        </div>
       </div>
     </div>
 
@@ -269,7 +287,7 @@
 
   <!-- Footer -->
   <div class="footer">
-    <span>解决方案亮点：创新管理模式 · 灵活可定制</span>
+    <span>创新管理模式 · 灵活可定制</span>
     <span>柏盛健康</span>
   </div>
 
