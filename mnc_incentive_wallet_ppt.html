@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MNC激励钱包方案 - 一页PPT</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
+        'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+      background: #f5f5f5;
+    }
+
+    .slide {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #ffffff;
+      margin: 20px auto;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* ──── Header ──── */
+    .header {
+      background: linear-gradient(135deg, #3966CA 0%, #00D4F1 100%);
+      color: #fff;
+      padding: 24px 48px 20px;
+      position: relative;
+    }
+
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; right: 0;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      pointer-events: none;
+    }
+
+    .header-title {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      position: relative;
+      z-index: 1;
+      line-height: 1.2;
+    }
+
+    .header-sub {
+      font-size: 13px;
+      opacity: 0.85;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ──── Content ──── */
+    .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 24px 48px;
+      gap: 16px;
+      overflow: hidden;
+    }
+
+    /* ──── Section Label ──── */
+    .section-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #3966CA;
+      margin-bottom: 4px;
+    }
+
+    /* ──── Background Section ──── */
+    .background-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      height: 100px;
+    }
+
+    .bg-card {
+      background: linear-gradient(135deg, rgba(57, 102, 202, 0.08) 0%, rgba(0, 212, 241, 0.08) 100%);
+      border: 1.5px solid;
+      border-image: linear-gradient(135deg, #3966CA 0%, #00D4F1 100%) 1;
+      border-radius: 8px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .bg-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: #FF8B38;
+      margin-bottom: 4px;
+      letter-spacing: 0.08em;
+    }
+
+    .bg-value {
+      font-size: 18px;
+      font-weight: 700;
+      color: #3966CA;
+      line-height: 1.2;
+    }
+
+    .bg-desc {
+      font-size: 11px;
+      color: #666;
+      margin-top: 3px;
+      line-height: 1.4;
+    }
+
+    /* ──── Problem Section ──── */
+    .problem-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      height: 85px;
+    }
+
+    .problem-card {
+      background: linear-gradient(135deg, rgba(255, 200, 69, 0.08) 0%, rgba(255, 139, 56, 0.08) 100%);
+      border-left: 3px solid #FFC845;
+      border-radius: 4px;
+      padding: 12px;
+    }
+
+    .problem-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: #FF8B38;
+      margin-bottom: 4px;
+      letter-spacing: 0.08em;
+    }
+
+    .problem-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #2c2c2c;
+      margin-bottom: 3px;
+      line-height: 1.3;
+    }
+
+    .problem-text {
+      font-size: 12px;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    .problem-text strong {
+      color: #FF8B38;
+      font-weight: 700;
+    }
+
+    /* ──── Solution Section ──── */
+    .solution-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      height: auto;
+    }
+
+    .solution-card {
+      background: linear-gradient(135deg, rgba(57, 102, 202, 0.08) 0%, rgba(0, 212, 241, 0.08) 100%);
+      border: 1.5px solid;
+      border-image: linear-gradient(135deg, #3966CA 0%, #00D4F1 100%) 1;
+      border-radius: 8px;
+      padding: 10px;
+    }
+
+    .solution-num {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #3966CA;
+      margin-bottom: 4px;
+    }
+
+    .solution-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #3966CA;
+      margin-bottom: 5px;
+      line-height: 1.3;
+    }
+
+    .solution-text {
+      font-size: 11px;
+      color: #2c2c2c;
+      line-height: 1.55;
+    }
+
+    .accent-yellow {
+      color: #FFC845;
+      font-weight: 600;
+    }
+
+    /* ──── Value Section ──── */
+    .value-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      height: auto;
+    }
+
+    .value-card {
+      background: linear-gradient(135deg, rgba(57, 102, 202, 0.08) 0%, rgba(0, 212, 241, 0.08) 100%);
+      border: 1.5px solid;
+      border-image: linear-gradient(135deg, #3966CA 0%, #00D4F1 100%) 1;
+      border-radius: 8px;
+      padding: 10px;
+    }
+
+    .value-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #3966CA;
+      margin-bottom: 4px;
+    }
+
+    .value-text {
+      font-size: 11px;
+      color: #2c2c2c;
+      line-height: 1.5;
+    }
+
+    /* ──── Footer ──── */
+    .footer {
+      background: linear-gradient(90deg, #DAEFE2 0%, rgba(0, 212, 241, 0.08) 100%);
+      padding: 12px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #DAEFE2;
+      font-size: 11px;
+      color: #3966CA;
+    }
+
+    /* ──── Print ──── */
+    @media print {
+      body { background: white; }
+      .slide { margin: 0; box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="slide">
+  
+  <!-- Header -->
+  <div class="header">
+    <div class="header-title">动态自付 × 激励钱包</div>
+    <div class="header-sub">领先咨询公司 MNC 企业福利方案 | 柏盛健康</div>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+
+    <!-- Background -->
+    <div>
+      <div class="section-label">背景 · 企业困境</div>
+      <div class="background-row">
+        <div class="bg-card">
+          <div class="bg-label">年度保险成本</div>
+          <div class="bg-value">千万级+</div>
+          <div class="bg-desc">持续攀升，压力巨大</div>
+        </div>
+        <div class="bg-card">
+          <div class="bg-label">成本年增速</div>
+          <div class="bg-value">2位数增长</div>
+          <div class="bg-desc">超业务增速，难以承受</div>
+        </div>
+        <div class="bg-card">
+          <div class="bg-label">核心矛盾</div>
+          <div class="bg-value">成本控↔体验降</div>
+          <div class="bg-desc">不能直接cut福利</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Problem -->
+    <div>
+      <div class="section-label">痛点 · 为什么需要方案</div>
+      <div class="problem-row">
+        <div class="problem-card">
+          <div class="problem-label">HR压力</div>
+          <div class="problem-title">员工使用率高 vs 成本严控</div>
+          <div class="problem-text">直接降低福利会影响企业声誉和<strong>重要人才留用</strong>，但放任成本飙升也难以接受</div>
+        </div>
+        <div class="problem-card">
+          <div class="problem-label">成本结构</div>
+          <div class="problem-title">需要管理就医行为，而非简单降低保障</div>
+          <div class="problem-text">关键问题：如何在不降低保障的前提下，<strong>创新方式管理员工就医行为</strong>，减少滥用</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Solution -->
+    <div>
+      <div class="section-label">解决方案 · 三大支柱</div>
+      <div class="solution-row">
+        <div class="solution-card">
+          <div class="solution-num">01</div>
+          <div class="solution-title">动态自付设计</div>
+          <div class="solution-text">根据就诊频次调整自付比例：<span class="accent-yellow">1-10次0%、11-20次10%、21+次30%</span>。引导合理就医路径，而非一刀切降保</div>
+        </div>
+        <div class="solution-card">
+          <div class="solution-num">02</div>
+          <div class="solution-title">年度激励钱包</div>
+          <div class="solution-text">每人每年<span class="accent-yellow">3000元</span>激励额度，每次就诊等比扣除。结余可跨年使用，激励健康行为</div>
+        </div>
+        <div class="solution-card">
+          <div class="solution-num">03</div>
+          <div class="solution-title">胡萝卜大棒法</div>
+          <div class="solution-text">结合服务端长期成本管控。保障不降，但通过激励+引导实现<span class="accent-yellow">长期成本管理</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Value -->
+    <div style="margin-top: -4px;">
+      <div class="section-label">柏盛的核心价值</div>
+      <div class="value-row">
+        <div class="value-card">
+          <div class="value-title">一站式服务平台</div>
+          <div class="value-text">• 市场独有的微信服务平台<br>• 专属全科医生 + 私人健康管家<br>• 医疗、保险、支付一体化服务<br>• 线上管理小病，全科引导大病</div>
+        </div>
+        <div class="value-card">
+          <div class="value-title">福利+服务双管齐下</div>
+          <div class="value-text">• 从被动赔付到主动管理<br>• 减少不必要的高端私立就诊<br>• 全科优化医疗路径<br>• 创新管理模式 + 灵活定制能力</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <span>成本管控 + 员工体验的创新平衡</span>
+    <span>柏盛健康</span>
+  </div>
+
+</div>
+
+</body>
+</html>
